@@ -21,7 +21,7 @@ public class ClientService {
         clientRepository.save(client);
     }
 
-    public void deleteLocation(Integer id){
+    public void deleteClient(Integer id){
         clientRepository.deleteById(id);
     }
 
@@ -29,7 +29,7 @@ public class ClientService {
         return clientRepository.findById(id).orElse(null);
     }
 
-    public void updateLocation(Client existingclient) {
+    public void updateClient(Client existingclient) {
         clientRepository.save(existingclient);
     }
 }
