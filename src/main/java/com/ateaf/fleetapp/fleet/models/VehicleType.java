@@ -1,4 +1,4 @@
-package com.ateaf.fleetapp.models;
+package com.ateaf.fleetapp.fleet.models;
 
 import com.ateaf.fleetapp.parameters.models.CommonObject;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;

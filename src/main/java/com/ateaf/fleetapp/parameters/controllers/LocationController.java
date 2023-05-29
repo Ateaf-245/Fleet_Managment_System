@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class LocationController {
+
     //injecting dependence
     @Autowired
     private LocationService locationService;
@@ -26,50 +27,49 @@ public class LocationController {
         return model;
     }
 
-    // get All states
+    // get All locations
     @GetMapping("/parameters/locations")
-    public String getStates(Model model) {
+    public String getLocation(Model model) {
         addModelAttribute(model);
         return "parameters/Location";
     }
 
-    // add new state
+    // add new location
     @GetMapping("/locationAdd")
-    public String addState(Model model) {
+    public String addLocation(Model model) {
         addModelAttribute(model);
         return "parameters/locationAdd";
     }
 
     @PostMapping("/parameters/locations")
-    public String saveNewState(Location location) {
+    public String saveNewLocation(Location location) {
         locationService.save(location);
         return "redirect:/parameters/locations";
     }
 
     @GetMapping("/locations/delete/{id}")
-    private String deleteState(@PathVariable Integer id) {
+    private String deleteLocation(@PathVariable Integer id) {
         locationService.deleteLocation(id);
         return "redirect:/parameters/locations";
     }
 
     @GetMapping("/locations/edit/{id}")
-    public String editState(@PathVariable Integer id, Model model) {
+    public String editLocation(@PathVariable Integer id, Model model) {
         addModelAttribute(model);
         model.addAttribute("locations", locationService.getById(id));
         return "parameters/locationEdit";
     }
 
     @RequestMapping(value = "/locations/update/{id}", method = {RequestMethod.GET, RequestMethod.PUT})
-    public String updateState(Location location) {
+    public String updateLocation(Location location) {
         locationService.updateLocation(location);
         return "redirect:/parameters/locations";
     }
 
     @GetMapping("/locations/details/{id}")
-    public String detailsState(@PathVariable Integer id, Model model) {
+    public String detailsLocation(@PathVariable Integer id, Model model) {
         addModelAttribute(model);
         model.addAttribute("locations", locationService.getById(id));
         return "parameters/locationDetails";
     }
-
 }

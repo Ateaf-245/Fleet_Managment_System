@@ -7,23 +7,35 @@ u[o]&&(delete u[o],c?delete n[l]:typeof n.removeAttribute!==i?n.removeAttribute(
 
  $('document').ready(function () { // Line 1
 
-            $('#ddlCountryAdd').on('change',function () { // Line 2
-                console.log("I got here!")
+    $('#ddlCountryAdd').on('change',function () { // Line 2
+        console.log("I got here!")
 
-                $('#ddlStateAdd').empty().append('<option value="null">-SELECT-</option>'); // Line 3
+        $('#ddlStateAdd').empty().append('<option value="null">-SELECT-</option>'); // Line 3
 
-                var countryid = $(this).val(); //Line 4
+        var countryid = $(this).val(); //Line 4
 
-                var href = "http://localhost:8080/parameters/country/" + countryid //Line 5
+        var href = "http://localhost:8080/parameters/country/" + countryid //Line 5
 
-                $.get(href, function (country, status) { // Line 6
+        $.get(href, function (country, status) { // Line 6
 
-                    var states = country.states; // Line 7
+            var states = country.states; // Line 7
 
-                    for (var i = 0; i <= states.length-1; i++) { // Line 8
-                        $('#ddlStateAdd').append('<option value="' + states[i].id + '">' + states[i].name + '</option>'); // Line 9
-                    }
-                })
-            })
-
+            for (var i = 0; i <= states.length-1; i++) { // Line 8
+                $('#ddlStateAdd').append('<option value="' + states[i].id + '">' + states[i].name + '</option>'); // Line 9
+            }
         })
+    })
+ })
+
+
+   $('document').ready(function () {
+             $('.table #display').on('click', function (event) {
+                 event.preventDefault();
+                 var href = $(this).attr('href');
+                 $.get(href, function (vehicleType, status) {
+                     $('#txtId').val(vehicleType.id);
+                     $('#txtDescription').val(vehicleType.description);
+                     $('#txtDetails').val(vehicleType.details);
+                 })
+             })
+         })

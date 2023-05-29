@@ -1,5 +1,6 @@
 package com.ateaf.fleetapp.models;
 
+import com.ateaf.fleetapp.fleet.models.VehicleType;
 import com.ateaf.fleetapp.hr.models.Employee;
 import com.ateaf.fleetapp.parameters.models.Location;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
