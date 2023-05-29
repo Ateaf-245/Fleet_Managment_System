@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en"
+      layout:decorate="_layout"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div layout:fragment="content">
+
+    <div class="row">
+        <div class="col-lg-12">
+            <h3 class="page-header"><i class="fa fa fa-bars"></i> Edit Client</h3>
+            <ol class="breadcrumb">
+                <li><i class="fa fa-home"></i><a th:href="@{/index}">Home</a></li>
+                <li><i class="fa fa-bars"></i><a th:href="@{/parameters}">Parameters</a></li>
+                <li><i class="fa fa-bars"></i><a th:href="@{/parameters/clients}">Clients</a></li>
+                <li><i class="fa fa-square-o"></i>Edit Client</li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="container" style="width: 70%">
+        <div class="row justify-content-center">
+            <div class="col-lg-12">
+                <form class="form-horizontal" id="cform" method="put" th:action="@{/clients/update/{id}(id=${clients.id})}">
+                    <section class="panel">
+                        <header class="panel-heading">
+                            Edit Client Record
+                        </header>
+                        <div class="panel-body">
+                            <div class="col-lg-6">
+                                <div class="form-group row">
+                                    <label class="control-label col-sm-4">Name</label>
+                                    <div class="col-sm-6">
+                                        <input class="form-control"
+                                               name="name"
+                                               th:value="${clients.name}"
+                                               placeholder="Enter Client Name"
+                                               size="16"
+                                               type="text"/>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="control-label col-sm-4">Email</label>
+                                    <div class="col-sm-6">
+                                        <input class="form-control"
+                                               name="email"
+                                               th:value="${clients.email}"
+                                               placeholder="Enter Email address"
+                                               size="16"
+                                               type="text"/>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="control-label col-sm-4">Website</label>
+                                    <div class="col-sm-6">
+                                        <input class="form-control"
+                                               name="website"
+                                               th:value="${clients.website}"
+                                               placeholder="Enter Website name"
+                                               size="16"
+                                               type="text"/>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="control-label col-sm-4">Address</label>
+                                    <div class="col-sm-6">
+                                        <input class="form-control"
+                                               name="address"
+                                               th:value="${clients.address}"
+                                               placeholder="Enter Address"
+                                               size="16"
+                                               type="text"/>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="control-label col-sm-4">Mobile</label>
+                                    <div class="col-sm-6">
+                                        <input class="form-control"
+                                               name="mobile"
+                                               th:value="${clients.mobile}"
+                                               placeholder="Enter Mobile Number"
+                                               size="16"
+                                               type="text"/>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group row">
+                                    <label class="control-label col-sm-4">Country: </label>
+                                    <div class="col-sm-6">
+                                        <select class="form-control" id="ddlCountryAdd" name="countryid">
+                                            <option th:value="${null}"> -Select-</option>
+                                            <option th:each="Country : ${countries}"
+                                                    th:text="${Country.description}"
+                                                    th:selected="${Country.id}==${clients.countryid}? True :False"
+                                                    th:value="${Country.id}">
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="control-label col-sm-4">State: </label>
+                                    <div class="col-sm-6">
+                                        <select class="form-control" id="ddlStateAdd" name="stateid">
+                                            <option th:value="${null}"> -Select-</option>
+                                            <option th:each="State : ${states}"
+                                                    th:text="${State.name}"
+                                                    th:selected="${State.id}==${clients.stateid}? True :False"
+                                                    th:value="${State.id}">
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="control-label col-sm-4">City</label>
+                                    <div class="col-sm-6">
+                                        <input class="form-control"
+                                               name="city"
+                                               th:value="${clients.city}"
+                                               placeholder="Enter City Name"
+                                               size="16"
+                                               type="text"/>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="control-label col-sm-4">Details</label>
+                                    <div class="col-sm-6">
+                                        <input class=" form-control"
+                                               name="details"
+                                               th:value="${clients.details}"
+                                               placeholder="Enter Details"
+                                               size="16"
+                                               type="text"/>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="control-label col-sm-4">Phone</label>
+                                    <div class="col-sm-6">
+                                        <input class=" form-control"
+                                               name="phone"
+                                               th:value="${clients.phone}"
+                                               placeholder="Enter Telephone Phone number"
+                                               size="16"
+                                               type="text"/>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </section>
+
+                    <section class="panel ">
+                        <div class="panel-body">
+                            <button class="btn btn-primary" type="submit">
+                                Save
+                            </button>
+                            <a class="btn btn-warning " th:href="@{/parameters/clients}">
+                                Exit
+                            </a>
+                        </div>
+                    </section>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<th:block layout:fragment="script">
+
+</th:block>
+
+</body>
+</html>

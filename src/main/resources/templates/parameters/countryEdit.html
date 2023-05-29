@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="_layout" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<div layout:fragment="content">
+
+  <div class="row">
+    <div class="col-lg-12">
+      <h3 class="page-header"><i class="fa fa fa-bars"></i> Edit Country</h3>
+      <ol class="breadcrumb">
+        <li><i class="fa fa-home"></i><a th:href="@{/index}">Home</a></li>
+        <li><i class="fa fa-bars"></i><a th:href="@{/parameters}">Parameters</a></li>
+        <li><i class="fa fa-bars"></i><a th:href="@{/parameters/countries}">Countries</a></li>
+        <li><i class="fa fa-square-o"></i>Edit Country</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="container" style="width: 70%">
+    <div class="row justify-content-center">
+      <div class="col-lg-12">
+        <form id="cform" class="form-horizontal" th:action="@{/countries/update/{id}(id=${country.id})}" method="put">
+          <section class="panel">
+            <header class="panel-heading">
+              Edit Country Record
+            </header>
+            <div class="panel-body">
+              <div class="form-group">
+                <label class="control-label col-sm-4">Description</label>
+                <div class="col-sm-6">
+                  <input name="description"
+                         type="text"
+                         th:value="${country.description}"
+                         size="16"
+                         class="form-control"
+                         placeholder="Enter Country Name"/>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="control-label col-sm-4">Capital</label>
+                <div class="col-sm-6">
+                  <input name="capital"
+                         th:value="${country.capital}"
+                         class="form-control"
+                         size="16"
+                         type="text"
+                         placeholder="Enter Capital name"/>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="control-label col-sm-4"> Nationality</label>
+                <div class="col-sm-6">
+                  <input name="nationality"
+                         type="text"
+                         th:value="${country.nationality}"
+                         class=" form-control"
+                         size="16"
+                         placeholder="Enter Nationality"/>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="control-label col-sm-4">Continent</label>
+                <div class="col-sm-5">
+                  <input name="continent"
+                         type="text"
+                         th:value="${country.continent}"
+                         class="form-control"
+                         size="16"
+                         placeholder="Enter Continent">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="control-label col-sm-4">Code</label>
+
+                <div class="col-sm-5">
+                  <input name="code"
+                         type="text"
+                         th:value="${country.code}"
+                         class="form-control"
+                         size="16"
+                         placeholder="Enter Country Code">
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="panel ">
+            <div class="panel-body">
+              <button type="submit" class="btn btn-primary">
+                Save
+              </button>
+              <a th:href="@{/countries}" class="btn btn-warning ">
+                Exit
+              </a>
+            </div>
+          </section>
+        </form>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

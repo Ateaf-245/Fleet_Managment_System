@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="_layout" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div layout:fragment="content">
+
+    <div class="row">
+        <div class="col-lg-12">
+            <h3 class="page-header"><i class="fa fa fa-bars"></i> FLEET HOME</h3>
+            <ol class="breadcrumb">
+                <li><i class="fa fa-home"></i><a href="/index">Home</a></li>
+                <li><i class="fa fa-bars"></i><a href="/fleet">FLEET</a></li>
+                <li><i class="fa fa-square-o"></i>FLEET Home</li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="col-sm-4">
+        <section class="panel">
+            <div class="panel-body">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title"><h3><b>Vehicles</b></h3></h5>
+                        <p class="card-text">Contains list of Vehicles and their details.</p>
+                        <a th:href="@{countries}" class="btn btn-primary">Manage Vehicles</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="col-sm-4">
+        <section class="panel">
+            <div class="panel-body">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title"><h3><b>Vehicle Hires</b></h3></h5>
+                        <p class="card-text">Contains list of Vehicle Hires and their details.</p>
+                        <a th:href="@{countries}" class="btn btn-primary">Manage Hires</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="col-sm-4">
+        <section class="panel">
+            <div class="panel-body">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title"><h3><b>Vehicle Movements</b></h3></h5>
+                        <p class="card-text">Contains list of Vehicle Movements and their details.</p>
+                        <a th:href="@{countries}" class="btn btn-primary">Manage Movements</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="col-sm-4">
+        <section class="panel">
+            <div class="panel-body">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title"><h3><b>Vehicle Maintenance</b></h3></h5>
+                        <p class="card-text">Contains Vehicle Maintenance and their details.</p>
+                        <a th:href="@{countries}" class="btn btn-primary">Maintenance Record</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="col-sm-4">
+        <section class="panel">
+            <div class="panel-body">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title"><h3><b>Vehcle Types</b></h3></h5>
+                        <p class="card-text">Contains list of Vehcle Types and their details.</p>
+                        <a th:href="@{countries}" class="btn btn-primary">Manage Vehcle Types</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="col-sm-4">
+        <section class="panel">
+            <div class="panel-body">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title"><h3><b>Vehicle Status</b></h3></h5>
+                        <p class="card-text">Contains list of Vehicle Status and their details.</p>
+                        <a th:href="@{countries}" class="btn btn-primary">Manage Vehicle Status</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="col-sm-4">
+        <section class="panel">
+            <div class="panel-body">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title"><h3><b>Vehicle Makes</b></h3></h5>
+                        <p class="card-text">Contains list of Vehicle Makes and their details.</p>
+                        <a th:href="@{countries}" class="btn btn-primary">Manage Vehicle Makes</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div> <div class="col-sm-4">
+        <section class="panel">
+            <div class="panel-body">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title"><h3><b>Vehicle Models</b></h3></h5>
+                        <p class="card-text">Contains list of Vehicle Models and their details.</p>
+                        <a th:href="@{countries}" class="btn btn-primary">Manage Vehicle Models</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+</div>
+</body>
+</html>
