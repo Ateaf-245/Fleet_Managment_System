@@ -1,44 +1,77 @@
 package com.ateaf.fleetapp;
 
+import com.ateaf.fleetapp.security.models.User;
+import com.ateaf.fleetapp.security.models.UserPrincipal;
+import com.ateaf.fleetapp.security.services.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+
 
 @Controller
 public class ApplicationController {
 
+     public static String username;
+
+    @Autowired
+    private IndexServices indexServices;
+
+    private UserService userService;
+
+
+
     @GetMapping("/_layout")
-    public String test(){
+    public String test(Model model){
         return "_layout";
     }
 
+    private UserPrincipal userPrincipal;
+
     @GetMapping("/index")
-    public String goHome(){
+    public String goHome(Model model){
+        model.addAttribute("EmployeeCount",indexServices.employeeCount());
+        model.addAttribute("ClientCount",indexServices.clientCount());
+        model.addAttribute("CountryCount",indexServices.countryCount());
+        model.addAttribute("VehicleCount",indexServices.vehicleCount());
+        model.addAttribute("username",username);
         return "index";
     }
+
+    @GetMapping("/login")
+    public String loginPage(){
+        return "/security/login";
+    }
+
+    @GetMapping("/register")
+    public String register(){
+        return "/security/register";
+    }
+
     @GetMapping("/fleet")
     public String fleet(){
         return "/fleet/index";
     }
+
     @GetMapping("/hr")
     public String HR(){
         return "/hr/index";
     }
+
     @GetMapping("/accounts")
     public String accounts(){
         return "/accounts/index";
     }
 
-    @GetMapping("/helpdesk")
+    @GetMapping("/security")
     public String helpdesk(){
-        return "/helpdesk/index";
+        return "/security/index";
     }
+
     @GetMapping("/parameters")
     public String parameters(){
         return "/parameters/index";
-    }
-    @GetMapping("/payroll")
-    public String payroll(){
-        return "/payroll/index";
     }
 
 }

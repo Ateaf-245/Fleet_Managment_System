@@ -2,8 +2,6 @@ package com.ateaf.fleetapp.fleet.controllers;
 
 import com.ateaf.fleetapp.fleet.models.VehicleType;
 import com.ateaf.fleetapp.fleet.services.VehicleTypeService;
-import com.ateaf.fleetapp.parameters.models.Contact;
-import com.ateaf.fleetapp.parameters.services.ContactService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
