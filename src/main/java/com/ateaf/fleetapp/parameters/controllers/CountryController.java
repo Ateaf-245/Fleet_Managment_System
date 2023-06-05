@@ -3,7 +3,9 @@ package com.ateaf.fleetapp.parameters.controllers;
 
 import com.ateaf.fleetapp.parameters.models.Country;
 import com.ateaf.fleetapp.parameters.services.CountryService;
+import jakarta.websocket.server.PathParam;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -19,10 +21,26 @@ public class CountryController {
 
 
     @GetMapping("/parameters/countries")
-    public String getCountries(Model model) {
-        List<Country> countries = countryService.findAll();
+    public String getCountries(Model model, String keyword) {
+
+        List<Country> countries;
+        countries = keyword==null ? countryService.findAll() : countryService.findByKeyword(keyword);
+
         model.addAttribute("countries", countries);
         return "parameters/Country";
+    }
+
+    @GetMapping("/parameters/countries/{field}")
+    public String getCountriesWithSort(Model model, @PathVariable String field, @PathParam("sortDir") String sortDir) {
+
+        List<Country> countries;
+        countries = countryService.findAllWithSort(field, sortDir);
+
+        model.addAttribute("sortDir",sortDir);
+        model.addAttribute("reverseSortDir", sortDir.equals("ASC") ? "DESC" : "ASC");
+
+        model.addAttribute("countries", countries);
+        return "/parameters/Country";
     }
 
     //get country by id
@@ -42,7 +60,7 @@ public class CountryController {
     @PostMapping("/countries")
     public String saveNewCountry(Country country) {
         countryService.save(country);
-        return "redirect:countries";
+        return "redirect:/parameters/countries";
     }
 
     //delete selected country

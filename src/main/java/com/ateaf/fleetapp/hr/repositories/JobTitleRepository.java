@@ -1,4 +1,4 @@
-package com.ateaf.fleetapp.repositories;
+package com.ateaf.fleetapp.hr.repositories;
 
 import com.ateaf.fleetapp.hr.models.JobTitle;
 import org.springframework.data.jpa.repository.JpaRepository;

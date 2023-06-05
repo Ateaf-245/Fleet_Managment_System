@@ -1,5 +1,6 @@
 package com.ateaf.fleetapp.models;
 
+import com.ateaf.fleetapp.fleet.models.Vehicle;
 import com.ateaf.fleetapp.parameters.models.Client;
 import com.ateaf.fleetapp.parameters.models.Location;
 import jakarta.persistence.Entity;

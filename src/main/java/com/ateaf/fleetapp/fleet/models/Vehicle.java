@@ -1,7 +1,10 @@
-package com.ateaf.fleetapp.models;
+package com.ateaf.fleetapp.fleet.models;
 
 import com.ateaf.fleetapp.fleet.models.VehicleType;
 import com.ateaf.fleetapp.hr.models.Employee;
+import com.ateaf.fleetapp.models.VehicleMake;
+import com.ateaf.fleetapp.models.VehicleModel;
+import com.ateaf.fleetapp.models.VehicleStatus;
 import com.ateaf.fleetapp.parameters.models.Location;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
