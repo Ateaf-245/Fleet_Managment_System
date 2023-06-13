@@ -25,7 +25,10 @@ public class IndexServices {
     @Autowired
     private CountryRepository countryRepository;
 
+<<<<<<< HEAD
     @Autowired
+=======
+>>>>>>> origin/main
     private VehicleRepository vehicleRepository;
 
     public Integer employeeCount(){

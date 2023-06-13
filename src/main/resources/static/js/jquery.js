@@ -70,6 +70,7 @@ u[o]&&(delete u[o],c?delete n[l]:typeof n.removeAttribute!==i?n.removeAttribute(
                 $('#photoModal').modal();
             });
         })
+<<<<<<< HEAD
 
 //Invoice Status
 
@@ -97,3 +98,6 @@ u[o]&&(delete u[o],c?delete n[l]:typeof n.removeAttribute!==i?n.removeAttribute(
                 })
             })
         })
+=======
+    s
+>>>>>>> origin/main
